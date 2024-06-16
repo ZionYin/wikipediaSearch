@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="12.406" tests="6" skipped="0" failures="0" errors="0">
-<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.1" time="2.676">
+<testsuite name="Cucumber" time="26.211" tests="12" skipped="0" failures="0" errors="0">
+<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.1" time="3.141">
 <system-out><![CDATA[
 Given I am at the advanced search page of Wikipedia.........................passed
 When I input a search term "test" in the search box.........................passed
@@ -8,7 +8,7 @@ And I click the search button...............................................pass
 Then I should verify the status "true" of the search........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.2" time="1.918">
+<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.2" time="3.744">
 <system-out><![CDATA[
 Given I am at the advanced search page of Wikipedia.........................passed
 When I input a search term "face" in the search box.........................passed
@@ -16,7 +16,7 @@ And I click the search button...............................................pass
 Then I should verify the status "true" of the search........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.3" time="2.242">
+<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.3" time="2.538">
 <system-out><![CDATA[
 Given I am at the advanced search page of Wikipedia.........................passed
 When I input a search term "wiki" in the search box.........................passed
@@ -24,7 +24,7 @@ And I click the search button...............................................pass
 Then I should verify the status "true" of the search........................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.4" time="1.73">
+<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.4" time="1.619">
 <system-out><![CDATA[
 Given I am at the advanced search page of Wikipedia.........................passed
 When I input a search term "dskf" in the search box.........................passed
@@ -32,7 +32,7 @@ And I click the search button...............................................pass
 Then I should verify the status "false" of the search.......................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.5" time="1.852">
+<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.5" time="2.247">
 <system-out><![CDATA[
 Given I am at the advanced search page of Wikipedia.........................passed
 When I input a search term "ytat" in the search box.........................passed
@@ -40,12 +40,57 @@ And I click the search button...............................................pass
 Then I should verify the status "false" of the search.......................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.6" time="1.843">
+<testcase classname="Test the basic search functionality of Wikipedia advanced search" name="Valid search terms should return search results - Example #1.6" time="2.139">
 <system-out><![CDATA[
 Given I am at the advanced search page of Wikipedia.........................passed
 When I input a search term "bhuq" in the search box.........................passed
 And I click the search button...............................................passed
 Then I should verify the status "false" of the search.......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test the search suggestions feature" name="I can see search suggestions for valid search terms - Example #1.1" time="1.289">
+<system-out><![CDATA[
+Given I am at the advanced search page of Wikipedia.........................passed
+When I input a search term "face" in the search box.........................passed
+Then Search suggestions should be displayed.................................passed
+And Suggestions should contain suggestion "facebook"........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test the search suggestions feature" name="I can see search suggestions for valid search terms - Example #1.2" time="1.308">
+<system-out><![CDATA[
+Given I am at the advanced search page of Wikipedia.........................passed
+When I input a search term "bana" in the search box.........................passed
+Then Search suggestions should be displayed.................................passed
+And Suggestions should contain suggestion "banana"..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test the search suggestions feature" name="I can see search suggestions for valid search terms - Example #1.3" time="1.313">
+<system-out><![CDATA[
+Given I am at the advanced search page of Wikipedia.........................passed
+When I input a search term "Turin" in the search box........................passed
+Then Search suggestions should be displayed.................................passed
+And Suggestions should contain suggestion "Turing Machine"..................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test the search suggestions feature" name="User sees no suggestions for invalid search terms - Example #1.1" time="2.189">
+<system-out><![CDATA[
+Given I am at the advanced search page of Wikipedia.........................passed
+When I input a search term "dskfff" in the search box.......................passed
+Then No search suggestions should be displayed..............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test the search suggestions feature" name="User sees no suggestions for invalid search terms - Example #1.2" time="2.31">
+<system-out><![CDATA[
+Given I am at the advanced search page of Wikipedia.........................passed
+When I input a search term "tbrotq" in the search box.......................passed
+Then No search suggestions should be displayed..............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test the search suggestions feature" name="User sees no suggestions for invalid search terms - Example #1.3" time="2.174">
+<system-out><![CDATA[
+Given I am at the advanced search page of Wikipedia.........................passed
+When I input a search term "ssooii" in the search box.......................passed
+Then No search suggestions should be displayed..............................passed
 ]]></system-out>
 </testcase>
 </testsuite>

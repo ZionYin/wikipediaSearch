@@ -53,5 +53,23 @@ public class SearchSteps {
 	    boolean actualStatus = searchPage.hasSearchResult();
 	    assertTrue(expectedStatus == actualStatus);
 	}
+	
+	// Search suggestions test steps
+	@Then("Search suggestions should be displayed")
+	public void search_suggestions_should_be_displayed() {
+		searchPage.waitForOneSecond();
+	    assertTrue(searchPage.hasSearchSuggestion());
+	}
+
+	@Then("Suggestions should contain suggestion {string}")
+	public void suggestions_should_include(String suggestion) {
+		assertTrue(searchPage.containSuggestion(suggestion));
+	}
+
+	@Then("No search suggestions should be displayed")
+	public void no_search_suggestions_should_be_displayed() {
+		searchPage.waitForOneSecond();
+	    assertTrue(!searchPage.hasSearchSuggestion());
+	}
 
 }
