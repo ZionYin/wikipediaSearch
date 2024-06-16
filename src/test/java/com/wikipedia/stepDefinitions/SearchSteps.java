@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,11 +16,20 @@ import io.cucumber.java.en.When;
 public class SearchSteps {
 
 	WebDriver driver;
+	
+	@Before
+	public void setup() {
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+	
+	@After
+	public void tearDown() {
+		driver.quit();
+	}
 
 	@Given("I am at the advanced search page of Wikipedia")
 	public void i_am_at_the_advanced_search_page_of_wikipedia() {
-	    driver = new ChromeDriver();
-	    driver.manage().window().maximize();
 	    driver.get("https://en.wikipedia.org/w/index.php?search");
 	}
 
@@ -38,7 +49,6 @@ public class SearchSteps {
 	    boolean expectedStatus = Boolean.parseBoolean(status);
 	    boolean actualStatus = driver.findElements(By.className("mw-search-exists")).size() > 0;
 	    assertTrue(expectedStatus == actualStatus);
-	    driver.quit();
 	}
 
 }
