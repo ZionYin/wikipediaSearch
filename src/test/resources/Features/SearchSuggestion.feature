@@ -5,6 +5,7 @@ Feature: Test the search suggestions feature
   Scenario Outline: I can see search suggestions for valid search terms
     Given I am at the advanced search page of Wikipedia
     When I input a search term "<term>" in the search box
+    And I input a space and a little delay
     Then Search suggestions should be displayed
     And Suggestions should contain suggestion "<suggestion>"
 

@@ -53,6 +53,8 @@ public class WikipediaSearchPage {
 		return searchSuggestionsList.size() > 0;
 	}
 	
+	
+	
 	public boolean containSuggestion(String suggestion) {
 		suggestion = suggestion.toLowerCase();
 		for (WebElement searchSuggestion: searchSuggestionsList) {

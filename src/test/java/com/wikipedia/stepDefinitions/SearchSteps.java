@@ -55,6 +55,13 @@ public class SearchSteps {
 	}
 	
 	// Search suggestions test steps
+	
+	@When("I input a space and a little delay")
+	public void i_input_a_space_for_a_little_delay() {
+	    searchPage.inputSearchTerm(" ");
+	    searchPage.waitForOneSecond();
+	}
+	
 	@Then("Search suggestions should be displayed")
 	public void search_suggestions_should_be_displayed() {
 		searchPage.waitForOneSecond();
