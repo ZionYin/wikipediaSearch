@@ -1,4 +1,5 @@
 #Feature: link_to_business_plan
+@regression @smoke
 Feature: Test the basic search functionality of Wikipedia advanced search
 
   Scenario Outline: Valid search terms should return search results
