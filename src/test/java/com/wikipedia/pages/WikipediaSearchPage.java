@@ -21,6 +21,18 @@ public class WikipediaSearchPage {
 	
 	@FindBy(css = "a.oo-ui-labelElement-label")
 	private List<WebElement> searchSuggestionsList;
+	
+	@FindBy(css = ".mw-prevlink")
+	private List<WebElement> prevButtons;
+	
+	@FindBy(css = ".mw-nextlink")
+	private List<WebElement> nextButtons;
+	
+	@FindBy(css = ".results-info")
+	private WebElement resultInfo;
+	
+	@FindBy(css = ".mw-search-result")
+	private List<WebElement> searchResults;
 
 	private WebDriver driver = null;
 
@@ -40,6 +52,10 @@ public class WikipediaSearchPage {
 	public void clickSearchButton() {
 		searchButton.click();
 	}
+	
+	public void clickSearchBox() {
+		searchBox.click();
+	}
 
 	public boolean hasSearchResult() {
 		return searchResultsExistIndicator.size() > 0;
@@ -53,8 +69,6 @@ public class WikipediaSearchPage {
 		return searchSuggestionsList.size() > 0;
 	}
 	
-	
-	
 	public boolean containSuggestion(String suggestion) {
 		suggestion = suggestion.toLowerCase();
 		for (WebElement searchSuggestion: searchSuggestionsList) {
@@ -64,5 +78,29 @@ public class WikipediaSearchPage {
 		}
 		return false;
 	}
+	
+	public void clickNextButton() {
+		nextButtons.getFirst().click();
+		
+	}
+
+	public void clickPreviousButton() {
+		prevButtons.getFirst().click();
+		
+	}
+
+	public boolean isOnPage(Integer expectedPageNum) {
+		// For now, assume the grouping limit is always 20. In the future need to parameteralize 
+		// the number as well
+		int offset = Integer.parseInt((resultInfo.getAttribute("data-mw-num-results-offset")));
+		int actualPageNum = (offset / 20 ) + 1;
+		return actualPageNum == expectedPageNum;
+	}
+
+	public boolean verifyPage() {
+		// For now, only verify that there are 20 results in a single page
+		return searchResults.size() == 20;
+	}
+
 
 }
