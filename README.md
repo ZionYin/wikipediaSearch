@@ -73,7 +73,7 @@ Tags:
 - Usage: Tags (@smoke, @regression) are used in feature files and Test Runner to selectively run tests based on test types or categories.
 
 Test Steps
-- For now all test steps are organized in the BasicSearchSteps.java file. This file is designed to contain step definitions performed on the search page. If in the future we need to test other pages then it would be suitable for creating another file to organize those steps.
+- For now all test steps are organized in the BasicSearchSteps.java file. This file is designed to contain step definitions performed on the search page. If in the future we need to test other pages then it would be suitable to create another file to organize those steps.
 
 
 ## Next steps
